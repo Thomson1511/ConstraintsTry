@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Constraints Quiz</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="icon" href="Images/Final.png" type="image/webp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="RefreshConstraints" onclick="RefreshConst()">Refresh</div>
+    <div id="VersionNo" onclick="ShowVersionNo()">Show version numbers</div>
+    <div id="removeError" onclick="removeLastError()">Remove</div>
+
+    <div class="iconImg"></div>
+
+    <div class="container">
+        <div class="first-section">
+            <div class="backgFirst">
+                <div class="arrow-outline"></div>
+                <div class="arrowTop"></div>
+            </div>
+            <div class="overlay">
+                <div class="points" id="indPoints">0/148</div>
+                <div class="left">
+                    <p id="indFrom">LHCC</p>
+                </div>
+                <div class="middle">
+                    <div class="top-m">
+                        <p id="indAirport">LHBP</p>
+                    </div>
+                    <div class="bottom-m">
+                        <p id="indVia">ACC</p>
+                    </div>
+                </div>
+                <div class="right">
+                    <p id="indTo">LOVV</p>
+                </div>
+                <div class="menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" onclick="displaySelector()"><path fill="currentColor" d="M11 19v-6.346L4.95 5h14.1L13 12.654V19zm1-6.7L16.95 6h-9.9zm0 0"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24"  onclick="RefreshConst()"><path fill="currentColor" d="M12.05 19.5q-3.139 0-5.344-2.19T4.5 12v-1.386l-2.1 2.1l-.708-.708L5 8.698l3.308 3.308l-.708.708l-2.1-2.1V12q0 2.712 1.907 4.606T12.05 18.5q.592 0 1.208-.121q.615-.121 1.196-.364l.75.75q-.738.358-1.537.546t-1.617.189M19 15.302l-3.308-3.308l.708-.707l2.1 2.1V12q0-2.711-1.907-4.606T11.95 5.5q-.592 0-1.208.121q-.615.121-1.196.363l-.75-.75q.739-.357 1.537-.546q.798-.188 1.617-.188q3.139 0 5.344 2.19T19.5 12v1.387l2.1-2.1l.708.707z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" onclick="removeLastError()"><path fill="currentColor" d="m6.4 18.308l-.708-.708l5.6-5.6l-5.6-5.6l.708-.708l5.6 5.6l5.6-5.6l.708.708l-5.6 5.6l5.6 5.6l-.708.708l-5.6-5.6z"/></svg>
+                </div>
+            </div>
+        </div>
+        <div class="second-section">
+            <div class="secondSize">
+                <select class="ConditionACIn" id="indCondAcIn">
+                    <option value="nothing">(Empty)</option>
+                    <option value="inClimb">In climb</option>
+                    <option value="inDescent">In descent</option>
+                    <option value="atFL">At level</option>
+                    <option value="SubjectToAR">Subject to AR</option>
+                </select>
+                <input type="number" class="MainFL" placeholder="FL or ft" id="indMainFl">
+            </div>
+            <div class="secondSize">
+                <select class="ConditionToReach" id="indCondReach">
+                    <option value="nothing">(Empty)</option>
+                    <option value="crossLoRAbove">Cross LoR above</option>
+                    <option value="crossLoRBelow">Cross LoR below</option>
+                </select>
+                <input type="number" class="ReachFL" placeholder="FL or ft" id="indReachFl">
+            </div>
+        </div>
+        <div class="third-section">
+            <div class="lefthir">
+                <div class="third-center-top">Released for:</div>
+                <div class="third-every">
+                    <div class="third-left">
+                        <div class="third-left-top">
+                            <input type="checkbox" id="indTurn" style="display: none;">
+                            <label for="indTurn" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                            <label for="indTurn">Turn</label>
+                        </div>
+                        <div class="third-left-mid">
+                            <input type="checkbox" id="indDescent" style="display: none;">
+                            <label for="indDescent" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                            <label for="indDescent">Descent</label>
+                        </div>
+                        <div class="third-left-bot">
+                            <input type="checkbox" id="indClimb" style="display: none;">
+                            <label for="indClimb" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                            <label for="indClimb">Climb</label>
+                        </div>
+                    </div>
+
+                        <div class="third-center-bot">
+                            <input type="number" placeholder="FL or ft" id="indRelFl">
+                        </div>
+                    <div class="third-right">
+                        <div class="third-right-top">
+                            <input type="checkbox" name="group-release" id="indRelTen" style="display: none;">
+                            <label for="indRelTen" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                            <label for="indRelTen">10 NM before COP</label>
+                        </div>
+                        
+                        <div class="third-right-bot">
+                            <input type="checkbox" name="group-release" id="indRelUc" style="display: none;">
+                            <label for="indRelUc" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                            <label for="indRelUc">Upon contact</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="forth-section">
+                    <div class="forth-left-top">
+                        Special condition:
+                    </div>
+                    <div class="forth-left-bot">
+                        <select id="indSpecialOne">
+                            <option value="nothing">(Empty)</option>
+                            <option value="AMLIBA">If via AMRAX - LITKU, BADOV</option>
+                            <option value="atSummer">At summer</option>
+                            <option value="TRA">If TRA06D active</option>
+                            <option value="EDARAN">If via EDEMU, ARFOX, ANEXA</option>
+                            <option value="ARNeeded">Approval request needed</option>
+                            <option value="SubACT">Lower even FL subject to ACT/REV</option>
+                        </select>
+                        <select id="indSpecialTwo">
+                            <option value="nothing">(Empty)</option>
+                            <option value="aboveFl">Above FL</option>
+                            <option value="atFL">At level</option>
+                            <option value="noConst">Then no constraint</option>
+                        </select>
+                        <input type="number" id="indSpecialFl" placeholder="FL or ft">
+                    </div>
+            </div>
+        </div>
+        <div class="forth-right">
+            <div class="firstSet">Other Conditions:</div>
+            <div class="secondSet">
+                <div class="leftSet">
+                    <div class="third-right-first">
+                        <input type="checkbox" name="group-special" id="indAutoRev" style="display: none;">
+                            <label for="indAutoRev" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                        <label class="TRFL" for="indAutoRev">Subject to automatic REV to FL 190</label>
+                    </div>
+                    <div class="third-right-second">
+                        <input type="checkbox" name="group-special" id="indEarlyToc" style="display: none;">
+                            <label for="indEarlyToc" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                        <label class="TRSL" for="indEarlyToc">Early Transfer of Comm. req. (10NM bfr. XOMBA)</label>
+                    </div>
+                    <div class="third-right-third">
+                        <input type="checkbox" name="group-special" id="indTLHigher" style="display: none;">
+                            <label for="indTLHigher" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                        <label class="TRTL" for="indTLHigher">If TL higher than FL 110, verbal coord. needed</label>
+                    </div>
+                </div>
+                <div class="rightSet">
+                    <div class="third-right-forth">
+                        <input type="checkbox" name="group-special" id="indOddFl" style="display: none;">
+                            <label for="indOddFl" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                        <label for="indOddFl">Odd RFL</label>
+                    </div>
+                    <div class="third-right-fifth">
+                        <input type="checkbox" name="group-special" id="indAtSummer" style="display: none;">
+                            <label for="indAtSummer" class="check">
+                                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                                    <polyline points="1 9 7 14 15 4"></polyline>
+                                </svg>
+                            </label>
+                        <label class="TRFIL" for="indAtSummer">At Summer</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fifth-section">
+            <div class="errorsDiv">
+                <div class="errorsBfr">Errors:</div>
+                <div class="errors" id="error">0</div>
+            </div>
+            <button class="hint" onclick="showHint()">Hint</button>
+            <button class="next" onclick="nextConstraint()">Next</button>
+        </div>
+    </div>
+
+    <div id="hintContainer"></div>
+
+    <div class="selector">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" class="exitFilters" onclick="hideSelector()"><path fill="currentColor" d="m6.4 18.308l-.708-.708l5.6-5.6l-5.6-5.6l.708-.708l5.6 5.6l5.6-5.6l.708.708l-5.6 5.6l5.6 5.6l-.708.708l-5.6-5.6z"/></svg>
+        <div class="selections firstSelection">
+            <label class="selectorRows">
+                Filters:
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="firstGroup" style="display: none;">
+                <label for="firstGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Budapest.png"> Budapest - Wien <img class="selectorImages" src="Images/Wien.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="secondGroup" style="display: none;"> 
+                <label for="secondGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Wien.png"> Wien - Budapest <img class="selectorImages" src="Images/Budapest.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="thirdGroup" style="display: none;"> 
+                <label for="thirdGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Budapest.png"> Budapest - Zagreb <img class="selectorImages" src="Images/Zagreb.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="fourthGroup" style="display: none;"> 
+                <label for="fourthGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Zagreb.png"> Zagreb - Budapest <img class="selectorImages" src="Images/Budapest.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="fifthGroup" style="display: none;"> 
+                <label for="fifthGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Budapest.png"> Budapest - Beograd <img class="selectorImages" src="Images/Beograd.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="sixthGroup" style="display: none;"> 
+                <label for="sixthGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Beograd.png"> Beograd - Budapest <img class="selectorImages" src="Images/Budapest.png">
+            </label>
+        </div>
+        <div class="selections">
+            <label class="selectorRows">
+                <input type="checkbox" id="seventhGroup" style="display: none;"> 
+                <label for="seventhGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Budapest.png"> Budapest - Bucaresti <img class="selectorImages" src="Images/Bucaresti.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="eighthGroup" style="display: none;"> 
+                <label for="eighthGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Bucaresti.png"> Bucaresti - Budapest <img class="selectorImages" src="Images/Budapest.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="ninthGroup" style="display: none;"> 
+                <label for="ninthGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Budapest.png"> Budapest - Bratislava <img class="selectorImages" src="Images/Bratislava.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="tenthGroup" style="display: none;"> 
+                <label for="tenthGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Bratislava.png"> Bratislava - Budapest <img class="selectorImages" src="Images/Budapest.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="eleventhGroup" style="display: none;"> 
+                <label for="eleventhGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Budapest.png"> West - East - APP <img class="selectorImages" src="Images/Budapest.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="twelfthGroup" style="display: none;"> 
+                <label for="twelfthGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" src="Images/Budapest.png"> North - South <img class="selectorImages" src="Images/Budapest.png">
+            </label>
+            <label class="selectorRows">
+                <input type="checkbox" id="thirteenthGroup" style="display: none;"> 
+                <label for="thirteenthGroup" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <img class="selectorImages" id="imageSize0" src="Images/Lviv.png"> Lviv - Ljubljana <img class="selectorImages" id="imageSize1" src="Images/Ljubljana.png">
+            </label>
+        </div>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>

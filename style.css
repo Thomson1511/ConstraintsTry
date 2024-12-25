@@ -1,0 +1,824 @@
+@font-face {
+    font-family: Varela;
+    src: url(Fonts/Varela-Regular.ttf);
+}
+@font-face {
+    font-family: Blinker;
+    src: url(Fonts/Blinker-Regular.ttf);
+}
+
+*{
+    color: white;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input{
+    width: 100px;
+    height: 20px;
+    padding: 0 0 0 5px;
+    background: none;
+    border: 2px solid #00D0FF;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 14;
+    font-family: Varela, sans-serif;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #00D0FF;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background: linear-gradient(#00064E, #000000);
+}
+
+.container{
+    width: 960px;
+    height: 610px;
+    border: 2px solid #00D0FF;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.first-section{
+    height: 110px;
+    width: 960px;
+    border-radius: 15px 15px 0px 0px;
+    border-bottom: 2px solid #00D0FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backgFirst {
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrowTop{
+    position: relative;
+    width: 240px;
+    height: 40px;
+    background: linear-gradient(to right, #D9D9D9, #00D0FF); /* Színátmenet */
+    clip-path: polygon(0% 20%, 90% 20%, 90% 0%, 100% 50%, 90% 100%, 90% 80%, 0% 80%);
+}
+
+.arrow-outline {
+    position: absolute;
+    width: 244px; /* Nyíl szélessége + körvonal */
+    height: 44px; /* Nyíl magassága + körvonal */
+    background: black; /* Körvonal színe */
+    clip-path: polygon(0% 20%, 89% 20%, 89% 0%, 100% 50%, 89% 100%, 89% 80%, 0% 80%);
+}
+
+.overlay{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 110px;
+    width: 960px;
+}
+.left, .right, .top-m, .bottom-m{
+    width: 160px;
+    height: 40px;
+    background-color: black;
+    border: 2px solid #00D0FF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-family: Varela, sans-serif;
+}
+.top-m{
+    margin-bottom: 10px;
+}
+.middle{
+    width: 160px;
+}
+.points, .menu{
+    width: 135px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.points{
+    font-size: 32px;
+    font-family: Varela, sans-serif;
+}
+.menu svg{
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.second-section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    height: 95px;
+}
+
+.second-section select{
+    width: 200px;
+    height: 20px;
+    background: none;
+    border: 2px solid #00D0FF;
+    border-radius: 2px;
+    font-size: 14;
+    font-family: Varela, sans-serif;
+    margin-right: 10px;
+}
+
+select option{
+    color: black;
+}
+
+.third-section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    height: 165px;
+}
+.third-every{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.lefthir,
+.forth-section{
+    width: 470px;
+    height: 165px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.third-center-top,
+.forth-left-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 30px;
+    border: 2px solid #00D0FF;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: Blinker, sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.third-every{
+    width: 400px;
+}
+
+.third-left-top,
+.third-left-bot,
+.third-left-mid{
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 28px;
+    font-family: Blinker, sans-serif;
+    font-size: 16px;
+}
+.third-right{
+    font-family: Blinker, sans-serif;
+    font-size: 16px;
+}
+
+#indSpecialOne,
+#indSpecialTwo{
+    width: 170px;
+    height: 20px;
+    background: none;
+    border: 2px solid #00D0FF;
+    border-radius: 2px;
+    font-size: 14;
+    font-family: Varela, sans-serif;
+}
+#indSpecialTwo{
+    width: 150px;
+}
+.forth-left-bot{
+    width: 450px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.forth-right{
+    height: 165px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.firstSet{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 30px;
+    font-family: Blinker, sans-serif;
+    font-size: 20px;
+    border: 2px solid #00D0FF;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.secondSet{
+    display: flex;
+    align-items: center;
+    font-family: Blinker, sans-serif;
+    font-size: 16px;
+}
+
+.leftSet{
+    margin-right: 10px;
+}
+
+.fifth-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 75px;
+    background-color: black;
+    border-radius: 0 0 15px 15px;
+    color: black;
+}
+
+.errorsDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 32px;
+    font-family: Varela, sans-serif;
+    height: 50px;
+    width: 150px;
+}
+
+.fifth-section button{
+    width: 125px;
+    height: 40px;
+    font-size: 26px;
+    font-family: Varela, sans-serif;
+}
+
+.hint,
+.next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000B80;
+    border: 4px solid #000B80;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.next{
+    background-color: transparent;
+}
+
+#hintContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 220px;
+    font-size: 26px;
+    font-family: Blinker, sans-serif;
+}
+
+.iconImg{
+    height: 100px;
+    width: 100px;
+    background: url(Images/Final.png);
+    background-size: contain;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.selector{
+    display: none;
+}
+
+.selectorRows{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid #00D0FF;
+    width: 240px;
+    height: 40px;
+    cursor: pointer;
+    font-family: Blinker, sans-serif;
+}
+
+.selectorImages{
+    height: 20px;
+    width: 20px;
+}
+
+.firstSelection{
+    margin-right: 10px;
+}
+
+.selectorImages{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.exitFilters{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+
+
+/*Minden szar*/
+
+.check {
+    cursor: pointer;
+    position: relative;
+    margin: 1vh;
+    width: 18px;
+    height: 18px;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .check:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(34,50,84,0.03);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .check svg {
+    position: relative;
+    z-index: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #1e3a4b;
+    stroke-width: 1.5;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s ease;
+  }
+  
+  .check svg path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+  }
+  
+  .check svg polyline {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 66;
+  }
+  
+  .check:hover:before {
+    opacity: 1;
+  }
+  
+  .check:hover svg {
+    stroke: #4285f4;
+  }
+  
+  #indTurn:checked + .check svg {
+    stroke: #4285f4;
+  }
+  
+  #indTurn:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+  }
+  
+  #indTurn:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+  }
+  
+/* Innentől jönnek a checkboxok */
+#indDescent:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#indDescent:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#indDescent:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#indClimb:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#indClimb:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#indClimb:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#firstGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#firstGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#firstGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#secondGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#secondGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#secondGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
+/* Választék */
+
+#thirdGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#thirdGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#thirdGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
+/* Választék */
+
+#fourthGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#fourthGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#fourthGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
+/* Választék */
+
+#fifthGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#fifthGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#fifthGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
+/* Választék */
+
+#sixthGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#sixthGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#sixthGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
+/* Választék */
+
+#seventhGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#seventhGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#seventhGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
+/* Választék */
+
+#eighthGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#eighthGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#eighthGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
+/* Választék */
+
+#ninthGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#ninthGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#ninthGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
+/* Választék */
+
+#tenthGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#tenthGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#tenthGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#eleventhGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#eleventhGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#eleventhGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#twelfthGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#twelfthGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#twelfthGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#thirteenthGroup:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#thirteenthGroup:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#thirteenthGroup:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#indRelTen:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#indRelTen:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#indRelTen:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+
+/* Választék */
+
+#indRelUc:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#indRelUc:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#indRelUc:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék utolsó 5 van*/
+
+#indAutoRev:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#indAutoRev:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#indAutoRev:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#indEarlyToc:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#indEarlyToc:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#indEarlyToc:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#indTLHigher:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#indTLHigher:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#indTLHigher:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#indOddFl:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#indOddFl:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#indOddFl:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/* Választék */
+
+#indAtSummer:checked + .check svg {
+    stroke: #4285f4;
+}
+
+#indAtSummer:checked + .check svg path {
+    stroke-dashoffset: 60;
+    transition: all 0.3s linear;
+}
+
+#indAtSummer:checked + .check svg polyline {
+    stroke-dashoffset: 42;
+    transition: all 0.2s linear;
+    transition-delay: 0.15s;
+}
+
+/*Minden szar vége*/
+
+/*Ideiglenes eltűntetések*/
+
+#RefreshConstraints,
+#VersionNo,
+#removeError,
+.mobileSelector{
+    display: none;
+}
+
+/*Ideiglenes eltűntetések vége*/
